@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>D3 Test</title>
+  <script src="scripts/jquery-2.1.4.min.js"></script>
+<script src="scripts/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="scripts/jquery-ui-1.11.4.custom/jquery-ui.js" charset="utf-8"></script>
+<script src="scripts/util.js" charset="utf-8"></script>
+<script src="scripts/jquery-ui-extensions/ext-jquery-ui.js" charset="utf-8"></script>
+<script src="scripts/Diff.js" charset="utf-8"></script>
+<script src="exampleData.js" charset="utf-8"></script>
+<script src="ExampleChanges.js" charset="utf-8"></script>
+
+
+<link rel="stylesheet" href="scripts/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" />
+<link rel="stylesheet" href="scripts/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" />
+<link rel="stylesheet" href="scripts/jquery-ui-extensions/ext-jquery-ui.css" />  
+<link rel="stylesheet" href="style.css" /> 
+</head>
+
+<body>
+
+<div>
+
+	
+<div class="main-diff-div view">
+<h1 id="title">Years: 2012 vs 2015</h1>
+<div id="main-diff">
+</div>
+</div>
+
+<div class="slider-div view">
+<p>
+<b>Date Selection</b>
+</p>
+<div id="slider" class="slider"></div>
+
+</div>
+<script>
+
+var dmp = new diff_match_patch();
+
+CourtRulesAct = loadData();
+console.log(CourtRulesAct);
+
+var date1 = new Date("January 1, 2012");
+var date2 = new Date("March 13, 2014");
+var date3 = new Date("November 14, 2014");
+var date4 = new Date();
+
+data1 = [];
+
+data2 = [
+	{id: 1, change: -1, text: "Hello World!"}, 
+	{id: 2, change: 0, text: "My name is Joe"},
+	{id: 3, change: 0, text: "Trouble Data!"}
+];
+
+data3 = [
+	{id: 3, change: 0, text: "And I am Data that has changed."},
+	{id: 4, change: 1, text: "[Section added 2014]"}
+];
+
+data4 = [
+	{id: 1, text: "[Section deleted 2013]"},
+	{id: 2, text: "My name is Yasha"},
+	{id: 3, text: "And I am Data bound using D3.js!"},
+	{id: 4, text: "I am a totally new section!"}
+];
+
+data = [
+	{year: date1, data: data1},
+	{year: date2, data: data2},
+	{year: date3, data: data3},
+	{year: date4, data: data4}
+]
+ 
+var dates = [date1, date2, date3, date4];
+
+var output = makeTicks(dates);
+
+var tickArray = output[0];
+var tickLabels = output[1];
+var maxTick = output[2];
+
+$(function() {$( "#slider" ).labeledslider({
+  orientation: "vertical",
+  tickArray: tickArray,
+  tickLabels: tickLabels,
+  values: [0,  maxTick ],
+  min: 0,
+  max: maxTick,
+  slide: function( event, ui ) {
+	if(ui.values[0] < ui.values[1])
+	{
+		var first = 0;
+		var second = 1;
+	}
+	else
+	{
+		var first = 1;
+		var second = 0;
+	}
+	
+	$( "#title" ).html("Dates: " + formatDate(ui.labels[first]) +  " vs " + formatDate(ui.labels[second]) );
+	update([ui.labels[first], ui.labels[second]]);
+  }
+});
+$( "#title" ).html("Dates: " + formatDate($( "#slider" ).labeledslider( "labels", 0 )) +
+  " vs " + formatDate($( "#slider" ).labeledslider( "labels", 1 )) );
+});
+
+update([date1, date4]);
+
+var d = new Date("June 1, 2013");
+var d = new Date("June 14, 2013");
+
+//console.log(d);
+	
+//data.push({id: 5, text: "Will I show up?"});	
+/*
+var newData = [
+	{id: 3, text: "Now I was replaced!"},
+	{id: 4, text: "And I am totally new!"}
+];
+	
+var selection = d3.select(".chart")
+				  .selectAll("div")
+				    .data(newData, function(d) { return d.id; } );
+					
+selection.enter().append("div")
+		.text(function(d) { return "ID: " + d.id + "    " + d.text; });
+					
+selection.html(function (d) {
+	var ds = Diff.diff_main(this.innerHTML, "ID: " + d.id + " " + d.text);
+	Diff.diff_cleanupSemantic(ds);
+	return Diff.diff_prettyHtml(ds);
+									; 
+});
+	
+	*/
+
+
+function update(years)
+{
+	//Clear the current data
+	d3.select("#main-diff")
+		.selectAll("div")
+		.remove();
+		
+	bindNoDiff(years[1]);
+	bindWithDiff(years);
+
+}
+	
+function bindNoDiff(year)
+{	
+	//Reset the document to be the most up-to-date copy
+	d3.select("#main-diff")
+		.selectAll("div")
+		.data(data[data.length-1].data)	
+		.enter().append("div")
+		.html(function(d) { return formatSection(d.id,d.text,d.text); });
+	//Add all changes to find the document at the year specified
+	for(j = data.length-2; j >= 0 && data[j].year > year; j--)
+	{
+		if(j>=0)
+		{
+			d3.select("#main-diff")
+				.selectAll("div")
+				.data(data[j].data, function(d) { return d.id; })
+				.html(function(d) { 
+					return formatSection(d.id,d.text,d.text); 
+				});
+				
+		}
+	} 
+}
+
+function bindWithDiff(years)
+{
+	var i;//Find the index i that corresponds to the current year. 
+
+	for(i = 0; i < data.length && years[1].getTime() != data[i].year.getTime(); i++);
+	
+	for(j = i; j >= 0 && data[j].year > years[0]; j--)
+	{
+		if(j>=0)
+		{
+			//newData = data[j].data;
+		
+			//console.log(data[j].data[0].id);
+			//console.log(data2014);
+			var selection = d3.select("#main-diff")
+				.selectAll("div")
+				.data(data[j].data, function(d) { return d.id; });
+				
+			selection.html(function(d) {
+					if(d.change == -1)
+					{
+						$(this).switchClass("added changed", "removed", 0);//red
+						return formatSection(d.id,d.text,$(this).find('span').html());
+					}
+					else if(d.change == 1)
+					{
+						$(this).switchClass("removed changed", "added", 0);//green
+						return formatSection(d.id,$(this).find('span').html(),$(this).find('span').html());
+					}
+					else if(!(d.text === $(this).find('span').html()))
+					{
+						$(this).switchClass("removed added", "changed", 0);	//blue					
+						var ds = dmp.diff_main(d.text,$(this).find('span').html());
+						dmp.diff_cleanupSemantic(ds);
+						ds = dmp.diff_prettyHtml(ds);
+						return formatSection(d.id,ds,$(this).find('span').html());
+					}
+					else
+					{
+						$(this).removeClass("added changed removed");
+						return formatSection(d.id,d.text,$(this).find('span').html());
+					}
+				});	
+				
+			selection.exit().property('background-color', 'none');
+		}
+	}
+}
+
+function formatSection(id,text,hiddenText)
+{
+	return "<h3>Section " + id + "</h3><p>" + text + "</p><span class='invisible'>" + hiddenText + "</span>";
+}
+
+</script>
+
+</body>
+</html>

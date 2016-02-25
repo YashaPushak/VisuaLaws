@@ -1,0 +1,38 @@
+function onClick(d) {
+	location.hash = "#" + d.key;
+}
+
+function onDblClick(d) {
+  //x.domain([d.y, d.y + d.dy]);
+  //y.domain([d.x, 1]).range([d.x ? 20 : 0, height]);
+  icicle.x.domain([d.y, 1]).range([d.y ? 20: 0, icicle.width]);
+  icicle.y.domain([d.x, d.x + d.dx]);
+
+  icicle.rect.transition()
+      .duration(750)
+      .attr("x", function(d) { return icicle.x(d.y); })
+      .attr("y", function(d) { return icicle.y(d.x); })
+      .attr("width", function(d) { return icicle.x(d.y + d.dy) - icicle.x(d.y); })
+      .attr("height", function(d) { return icicle.y(d.x + d.dx) - icicle.y(d.x); });
+}
+
+function onHover() {
+	var d = this.__data__
+	if(d.key != "innerObj")
+	{
+		dat = d3.select("#main-diff").select("#" + d.key).data()[0];
+		if(typeof dat != 'undefined')
+		{
+			if(dat.type == "section")
+				return "(" + dat.num + ") " + dat.marginalnote;
+			else
+				return "(" + dat.num + ") " + dat.text;
+		}
+		else
+		{
+			console.log("Undefined thing happened.");
+		}
+	}
+	else 
+		return "Court Rules Act";
+}

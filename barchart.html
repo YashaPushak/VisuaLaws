@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>D3 Test</title>
+<script src="d3-master/d3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+<h1>Hello World</h1>
+<input type="text" id="newData"></input>
+<input type="button" onclick="func()" value="Change stuff!">
+
+<div class="chart">
+
+</div>
+
+
+<style>
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
+
+<script>
+
+
+
+var data = [3, 5, 7, 10, 15];
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+	
+	
+function func()
+{	
+
+data.push(document.getElementById("newData").value);
+
+x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+	.selectAll("div")
+	.data(data)
+	.enter().append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+	
+d3.select(".chart")
+	.selectAll("div")
+	.style("width", function(d) { return x(d) + "px"; });
+	
+
+	
+	
+	
+	
+}
+
+/*
+d3.selectAll("p").style("color","blue");
+d3.select("body").style("background-color", "yellow");
+
+var p = d3.selectAll("p")
+    .data([4, 8, 15, 16, 23, 42])
+    .style("font-size", function(d) { return d + "px"; });
+	
+	
+	
+p.enter().append("p")
+	.text(function(d) { return "I'm number " + d*2 + "!";});
+	
+	
+	
+d3.selectAll("p")
+	.style("font-size", function(d) {return d*2 + "px";});
+	
+d3.selectAll("p")
+	.data([1, 3, 5, 2])
+	.text(function(d) { return "Now I'm number " + d + "!";});
+	
+d3.selectAll("circle")
+	.data([1, 2, 3, 4, 5])
+	.enter().append("circle")
+	.attr("r", function(d) { return d*10; })
+	
+	
+	
+var bool = true;
+	
+function func(){
+	bool = !bool;
+	if(bool)
+	{
+	d3.selectAll("p")
+		.data([1, 3, 5, 2, 8, 9])
+		.text(function(d) { return "Now I'm number " + d + "!";})
+		.style("font-size", function(d) { return d*5 + "px";})
+		.enter().append("p")
+		.text(function(d) {return "I'm a new guy #" + d + " !";});
+	}
+	else
+	{
+		p = d3.selectAll("p")
+			.data([5, 5, 5, 5])
+			.text(function(d) { return "I changed to number " + d + "!";})
+			.style("font-size", function(d) { return d*2 + "px";})
+			.exit().remove();
+		
+	}
+}	
+
+*/
+</script>
+
+</body>
+</html>
