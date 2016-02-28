@@ -1,4 +1,4 @@
-VisuaLaws was designed anc reated by Kimberly Dextras-Romagnino and 
+VisuaLaws was designed and created by Kimberly Dextras-Romagnino and 
 Yasha Pushak as part of a course project for CPSC 547: Information 
 Visualization taken at UBC in 2015. The course project idea was
 suggested by Knomos (http://knomos.ca/).
