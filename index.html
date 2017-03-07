@@ -46,6 +46,23 @@
 		width: 240px;
 		height: 240px;
 	}
+
+	svg.knomos-compass .needle {
+		animation: needle-spin 1s infinite
+	}
+
+	@keyframes needle-spin {
+		0% {
+			transform: rotateZ(0deg);
+			transform-origin: 50% 50%;
+			animation-timing-function: linear;
+		}
+		100% {
+			transform: rotateZ(360deg);
+			transform-origin: 50% 50%;
+			animation-timing-function: linear;
+		}
+	}
 </style>
 </head>
 
@@ -194,7 +211,12 @@ function loadLaw(id) {
 	   var target = document.getElementById('spinner')
 	   spinner = new Spinner(opts).spin(target);
 	 */
-	//  $('#knomos-compass').css('display', 'block');
+
+	/**
+	 * jabney 07-Mar-2017
+	 * Show the loading compass.
+	 */
+	$('#knomos-compass').css('display', 'block');
 
 	try {
 
@@ -241,10 +263,16 @@ function loadLaw(id) {
 						$("#body").css("display", "inline");
 
 						/**
-						 * jabney removed 07-Mar-2017
+						 * jabney 07-Mar-2017
 						   $("#spinner").css("display", "none");
 						   spinner.stop();
 						 */
+
+						/**
+						 * jabney 07-Mar-2017
+						 * Hide the loading compass.
+						 */
+						$('knomos-compass').css('display', 'none');
 
 						//Add the first date to the dates array.
 						dates = [new Date("January 1, 2000")];
