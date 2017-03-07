@@ -56,6 +56,10 @@
 
 	}
 
+	svg.knomos-logo-small .needle {
+		animation: needle-flux 28s infinite
+	}
+
 	svg.knomos-compass {
 		fill: #1e5aa2;
 		width: 240px;
@@ -76,6 +80,24 @@
 			transform: rotateZ(360deg);
 			transform-origin: 50% 50%;
 			/*animation-timing-function: linear;*/
+		}
+	}
+
+	@keyframes needle-flux {
+		0% {
+			transform: rotateZ(0deg);
+			transform-origin: 50% 50%;
+			animation-timing-function: ease;
+		}
+		50% {
+			transform: rotateZ(360deg);
+			transform-origin: 50% 50%;
+			animation-timing-function: ease;
+		}
+		100% {
+			transform: rotateZ(0deg);
+			transform-origin: 50% 50%;
+			animation-timing-function: ease;
 		}
 	}
 </style>
