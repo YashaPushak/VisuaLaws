@@ -44,7 +44,7 @@
 
 	.knomos-logo {
 		margin-top: 24px;
-		fill: #1C75BC;
+		fill: #1c75bc;
 		width: 360px;
 
 	}
@@ -57,7 +57,7 @@
 	}
 
 	svg.knomos-logo-small .needle {
-		animation: needle-flux 28s infinite
+		animation: needle-flux 30s infinite
 	}
 
 	svg.knomos-compass {
@@ -67,17 +67,39 @@
 	}
 
 	svg.knomos-compass .needle {
-		animation: needle-spin 3s infinite
+		animation: needle-spin 6s infinite
+	}
+
+	h2.visualaws {
+		margin: 8px;
+		text-align: center;
+		font-style: italic;
+		font-weight: normal;
+		color: #1c75bc;
+	}
+
+	#select h4 {
+		margin-bottom: 12px;
+		font-weight: normal;
+	}
+
+	#select select {
+		outline: none;
 	}
 
 	@keyframes needle-spin {
 		0% {
 			transform: rotateZ(0deg);
 			transform-origin: 50% 50%;
-			animation-timing-function: ease;
+			animation-timing-function: ease-in-out;
+		}
+		50% {
+			transform: rotateZ(720deg);
+			transform-origin: 50% 50%;
+			/*animation-timing-function: linear;*/
 		}
 		100% {
-			transform: rotateZ(360deg);
+			transform: rotateZ(0deg);
 			transform-origin: 50% 50%;
 			/*animation-timing-function: linear;*/
 		}
@@ -123,8 +145,11 @@
 	</svg>
 
 </div>
+
+<h2 class="visualaws">VisuaLaws</h2>
+
 <div id="select" class="centerText">
-	<h3>Please select a law to view</h3>
+	<h4>Please select a law to view</h4>
 	<select id="law-select" onchange="loadLaw(this.value);">
 		<option value="-1" selected disabled>Select a law...</option>
 		<option value="06019">Apology Act</option>
