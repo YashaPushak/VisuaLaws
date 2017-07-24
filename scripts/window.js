@@ -8,12 +8,12 @@ function resizeWindow() {
 	
 	var mainHeight = windowHeight - titleHeight;
 	
-	$("#main-diff-container").height(mainHeight);
-	$("#main-diff-container").css("top", titleHeight);	
-	$("#slider-div").height(mainHeight);
-	$("#slider-div").css("top", titleHeight);	
-	$("#icicle-div").height(mainHeight);
-	$("#icicle-div").css("top", titleHeight);
+	// $("#main-diff-container").height(mainHeight);
+	// $("#main-diff-container").css("top", titleHeight);	
+	// $("#slider-div").height(mainHeight);
+	// $("#slider-div").css("top", titleHeight);	
+	// $("#icicle-div").height(mainHeight);
+	// $("#icicle-div").css("top", titleHeight);
 	
 	
 	resizeSlider();
@@ -25,8 +25,8 @@ function resizeWindow() {
 	var icicleWidth = $("#logo-div").width();
 	var mainWidth = windowWidth - sliderWidth - icicleWidth;
 
-	$("#main-diff-container").width(mainWidth);
-	$("#title-div").width(mainWidth);
+	// $("#main-diff-container").width(mainWidth);
+	// $("#title-div").width(mainWidth);
 	
 	resizeScent();
 	

@@ -1,5 +1,7 @@
 html {
 	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	color: #58595b;
 }
 
 body {
@@ -7,8 +9,17 @@ body {
 	overflow: hidden;
 }
 
+#top-bar {
+	color: white;
+	background-color: #1b75bb;
+	height: 50px;
+}
+
+#title-bar {
+	height: 50px;
+}
+
 .logo {
-	max-height: 100%;
 	max-width: 220px;
 	height: auto;
 	width: auto;
@@ -22,78 +33,44 @@ body {
 	/*vertical-align: middle;*/
 }
 
-.logo-div {
-	position: fixed;
-	width: 20%;
-	height: 10%;
-	min-height: 67px;
-	top: 0%;
-	left: 0%;
-	background-color: #b3b3ff;*/
+#main-content {
+	box-sizing: border-box;
+	vertical-align: top;
 }
 
-.title-div {
+.slider-div {
 	position: fixed;
-	height: 10%;
-	min-height: 67px;
-	width: 60%;
-	top: 0%;
-	left: 20%;
-	vertical-align: middle;
-	background-color: #f2f2ff;/*#e5e5ff;/*#f7eeff;/*#efe5ff;/*#ece5ff*/
-
+	top: 100px;
+	left: 0px;
+	width: 20%;
+	min-width: 225px;
+	height: calc(100% - 100px - 80px);
 }
 
 .legend-div {
 	position: fixed;
-	top: 0%;
-	right: 0%;
+	bottom: 0px;
+	left: 0px;
 	width: 20%;
 	min-width: 225px;
-	height: 10%;
-	min-height: 67px;
-	background-color: #ccccff;/*#e5ccff;*/
-}
-
-.select-div {
-	position: absolute;
-	top: 0%;
-	right: 20%;
-	width: 20%;
-	height: 10%;
-	text-align: right;
-	display: table-cell;
-	vertical-align: bottom;
+	height: 80px;
+	min-height: 80px;
+	font-size: 0.8rem;
 }
 
 .icicle-div {
 	position: fixed;
-	width: 20%;
-	height: 90%;
-	top: 10%;
-	left: 0%;
-	background-color: #e5e5ff;/*#ccccff;*/
+	width: 10%;
+	height: calc(100% - 100px);
+	left: 20%;
 }
 
 .main-diff-div {
 	position: fixed;
-	top: 10%;
-	left: 20%;
-	width: 60%;
-	height: 90%;
+	left: 30%;
+	width: 70%;
+	height: calc(100% - 100px);
 	overflow-y: scroll;
-	background-color: #f9f9ff;
-}
-
-
-.slider-div {
-	position: fixed;
-	top: 10%;
-	right: 0px;
-	width: 20%;
-	min-width: 225px;
-	height: 90%;
-	background-color: #e5e5ff;
 }
 
 .icicle-scroll {
@@ -201,7 +178,7 @@ del.removed {
 }
 
 #main-diff div {
-	border: 1px solid #f9f9ff;
+	border: 1px solid white;
 }
 
 .bar {
@@ -280,6 +257,10 @@ del.removed {
 	left: 100px;
 	top: -15px;
 	font-size: 10px;
+}
+
+.ui-slider-wrapper {
+	font-family: 'Roboto', sans-serif !important;
 }
 
 .tick-labels {
@@ -448,8 +429,7 @@ g:nth-child(even) rect {
 
 .secno {
 	padding-left: 0.5em;
-    font-family: "Courier New",Courier,mono;
-    font-size: 1.3em;
+	font-weight: 500;
 }
 
 p.para {
@@ -469,7 +449,7 @@ p.def {
 }
 
 p.part {
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     font-size: 1.2em;
     line-height: 1.5em;
@@ -485,18 +465,17 @@ h4 {
 }
 
 h1, h2, h3, h4 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-weight: bold;
+	color: #1b75bb;
+    font-weight: 500;
     padding: 0;
 }
 
 p {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 0.8em;
-    line-height: 1.3em;
+    font-size: 1rem;
+    line-height: 1.4rem;
     padding: 0;
-    margin-top: .35em;
-    margin-bottom: .35em;
+    margin-top: .35rem;
+    margin-bottom: .35rem;
 }
 
 table {
