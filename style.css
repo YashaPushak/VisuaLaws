@@ -1,5 +1,6 @@
 html {
 	height: 100%;
+	font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -282,6 +283,10 @@ del.removed {
 	font-size: 10px;
 }
 
+.ui-slider-wrapper {
+	font-family: 'Roboto', sans-serif !important;
+}
+
 .tick-labels {
 	font-size: 10px;
 	margin-left: 1.5em;
@@ -448,7 +453,6 @@ g:nth-child(even) rect {
 
 .secno {
 	padding-left: 0.5em;
-    font-family: "Courier New",Courier,mono;
     font-size: 1.3em;
 }
 
@@ -485,18 +489,16 @@ h4 {
 }
 
 h1, h2, h3, h4 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: bold;
     padding: 0;
 }
 
 p {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 0.8em;
-    line-height: 1.3em;
+    font-size: 1rem;
+    line-height: 1.3rem;
     padding: 0;
-    margin-top: .35em;
-    margin-bottom: .35em;
+    margin-top: .35rem;
+    margin-bottom: .35rem;
 }
 
 table {
