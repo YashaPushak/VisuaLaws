@@ -43,23 +43,21 @@ body {
 	left: 0px;
 	width: 20%;
 	min-width: 225px;
-	height: 90%;
+	height: calc(100% - 100px);
 }
 
 .icicle-div {
 	position: fixed;
 	width: 10%;
-	height: 90%;
-	top: 10%;
+	height: calc(100% - 100px);
 	left: 20%;
 }
 
 .main-diff-div {
 	position: fixed;
-	top: 10%;
 	left: 30%;
 	width: 70%;
-	height: 90%;
+	height: calc(100% - 100px);
 	overflow-y: scroll;
 }
 
