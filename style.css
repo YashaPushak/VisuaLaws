@@ -30,7 +30,6 @@ body {
 	min-height: 67px;
 	top: 0%;
 	left: 0%;
-	background-color: #b3b3ff;*/
 }
 
 .title-div {
@@ -41,8 +40,6 @@ body {
 	top: 0%;
 	left: 20%;
 	vertical-align: middle;
-	background-color: #f2f2ff;/*#e5e5ff;/*#f7eeff;/*#efe5ff;/*#ece5ff*/
-
 }
 
 .legend-div {
@@ -53,7 +50,6 @@ body {
 	min-width: 225px;
 	height: 10%;
 	min-height: 67px;
-	background-color: #ccccff;/*#e5ccff;*/
 }
 
 .select-div {
@@ -73,7 +69,6 @@ body {
 	height: 90%;
 	top: 10%;
 	left: 0%;
-	background-color: #e5e5ff;/*#ccccff;*/
 }
 
 .main-diff-div {
@@ -83,7 +78,6 @@ body {
 	width: 60%;
 	height: 90%;
 	overflow-y: scroll;
-	background-color: #f9f9ff;
 }
 
 
@@ -94,7 +88,6 @@ body {
 	width: 20%;
 	min-width: 225px;
 	height: 90%;
-	background-color: #e5e5ff;
 }
 
 .icicle-scroll {
