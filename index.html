@@ -26,7 +26,7 @@
 	<script src="scripts/spin.min.js" type="text/javascript" language="javascrippt"></script>
 	<script src="scripts/window.js" type="text/javascript" language="javascrippt"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 	<link rel="stylesheet" href="scripts/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css" />
 	<link rel="stylesheet" href="scripts/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css" />
 	<link rel="stylesheet" href="scripts/jquery-ui-extensions/ext-jquery-ui.css" />
@@ -218,6 +218,24 @@
 
 		<div id="main-content">
 
+			<div id="legend-div" class="legend-div centerText">
+				<table>
+					<tr>
+						<td>
+							<div class="bar-added legend-bar"></div>
+							<div class="legend-label"> Enacted</div>
+							</br>
+							<div class="bar-changed legend-bar"></div>
+							<div class="legend-label"> Amended</div>
+							</br>
+							<div class="bar-removed legend-bar"></div>
+							<div class="legend-label"> Repealed</div>
+							</br>
+						</td>
+					</tr>
+				</table>
+			</div> 
+
 			<div id="slider-div" class="slider-div view">
 				<div id="slider-container" class="slider-container">
 					<div id="slider" class="slider"></div>
@@ -256,24 +274,6 @@
 
 		<!-- <div id="scented-scroll"></div> -->
 
-
-		<!-- <div id="legend-div" class="legend-div centerText">
-			<table>
-				<tr>
-					<td>
-						<div class="bar-added legend-bar"></div>
-						<div class="legend-label"> Enacted</div>
-						</br>
-						<div class="bar-changed legend-bar"></div>
-						<div class="legend-label"> Amended</div>
-						</br>
-						<div class="bar-removed legend-bar"></div>
-						<div class="legend-label"> Repealed</div>
-						</br>
-					</td>
-				</tr>
-			</table>
-		</div> -->
 	</div>
 	<script>
 		function loadLaw(id) {

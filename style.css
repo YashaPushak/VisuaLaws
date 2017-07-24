@@ -1,6 +1,7 @@
 html {
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
+	color: #58595b;
 }
 
 body {
@@ -60,9 +61,6 @@ body {
 	height: calc(100% - 100px);
 	overflow-y: scroll;
 }
-
-
-
 
 .icicle-scroll {
 	width: 100%;
@@ -420,7 +418,7 @@ g:nth-child(even) rect {
 
 .secno {
 	padding-left: 0.5em;
-    font-size: 1.3em;
+	font-weight: 500;
 }
 
 p.para {
@@ -440,7 +438,7 @@ p.def {
 }
 
 p.part {
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     font-size: 1.2em;
     line-height: 1.5em;
@@ -456,13 +454,14 @@ h4 {
 }
 
 h1, h2, h3, h4 {
-    font-weight: bold;
+	color: #1b75bb;
+    font-weight: 500;
     padding: 0;
 }
 
 p {
     font-size: 1rem;
-    line-height: 1.3rem;
+    line-height: 1.4rem;
     padding: 0;
     margin-top: .35rem;
     margin-bottom: .35rem;
