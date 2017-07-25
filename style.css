@@ -19,6 +19,34 @@ body {
 	height: 50px;
 }
 
+#title-bar > div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#title-icons {
+	width: 30%;
+	padding: 0.5rem;
+}
+
+#title-icons i {
+	font-size: 1.2rem;
+	color: #aaa;
+	margin-right: 1rem;
+}
+
+#title-icons i.fa-kn-list-view {
+	font-size: 0.9rem;
+}
+
+#title-icons i.fa-clock-o {
+	color: #1b75bb;
+}
+
+#title {
+	width: 65%;
+}
+
 .logo {
 	max-width: 220px;
 	height: auto;
