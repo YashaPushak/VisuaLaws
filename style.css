@@ -25,7 +25,7 @@ body {
 }
 
 #title-icons {
-	width: 30%;
+	width: 29%;
 	padding: 0.5rem;
 }
 
@@ -45,6 +45,9 @@ body {
 
 #title {
 	width: 65%;
+	font-size: 1.2rem;
+	color: #1b75bb;
+	font-weight: 500;	
 }
 
 .logo {
