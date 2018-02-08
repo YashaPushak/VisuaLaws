@@ -246,7 +246,7 @@
 						</td>
 					</tr>
 				</table>
-			</div> 
+			</div>
 
 			<div class="tab-header">
 				<h2><i class="fa fa-clock-o"></i> Amendment History</h2>
@@ -333,7 +333,7 @@
 				$.ajax
 					({
 						type: "GET",
-						url: "http://kn-bcb.herokuapp.com/api/bcl_proxy",
+						url: "http://kn-visualaws-proxy.herokuapp.com/api/bcl_proxy",
 						data: { url: "/civix/document/id/complete/statreg/" + id + "_01/xml" }, //Court Rules Act
 						beforeSend: function (xhr) {
 							xhr.setRequestHeader("Authorization", "Basic " + btoa("kimdr" + ":" + "zIMSNyE5iRDDsX00vDLCNFSHTAKr0odF"));
@@ -501,28 +501,28 @@
 
 										/*
 										icicle = {};
-				
+
 										icicle.width = 150;
 										icicle.height = 550;
-				
+
 										icicle.x = d3.scale.linear()
 											.range([0, icicle.width]);
-				
+
 										icicle.y = d3.scale.linear()
 											.range([0, icicle.height]);
-				
-				
+
+
 										icicle.partition = d3.layout.partition()
 											.children(function(d) { return isNaN(d.value) ? d3.entries(d.value) : null; })
 											.value(function(d) { return d.value; })
 											.sort(null);
-				
+
 										icicle.svg = d3.select("#icicle").append("svg")
 											.attr("width", icicle.width)
 											.attr("height", icicle.height);
-				
+
 										icicle.rect = icicle.svg.selectAll("rect");
-				
+
 										icicle.rect = icicle.rect
 										  .data(icicle.partition(d3.entries(icyAct)[0]))
 										.enter().append("rect")
@@ -533,13 +533,13 @@
 										  .attr("id", function(d) { return d.key; })
 										  .on("click", onClick)
 										  .on("dblclick", onDblClick);
-				
+
 										$('svg rect').tipsy({
 											gravity: 'w',
 											html: true,
 											title: onHover
 										});
-				
+
 										*/
 
 
