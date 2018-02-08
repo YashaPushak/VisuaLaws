@@ -336,7 +336,7 @@
 						url: "http://kn-visualaws-proxy.herokuapp.com/bcl_proxy",
 						data: { url: "/civix/document/id/complete/statreg/" + id + "_01/xml" }, //Court Rules Act
 						beforeSend: function (xhr) {
-							xhr.setRequestHeader("Authorization", "Basic " + btoa("kimdr" + ":" + "zIMSNyE5iRDDsX00vDLCNFSHTAKr0odF"));
+							// xhr.setRequestHeader("Authorization", "Basic " + btoa("kimdr" + ":" + "zIMSNyE5iRDDsX00vDLCNFSHTAKr0odF"));
 						},
 						success: function (xml) {
 
@@ -348,7 +348,7 @@
 									url: "http://kn-visualaws-proxy.herokuapp.com/bcl_proxy",
 									data: { url: "/civix/document/id/complete/statreg/" + id + "_pit/xml" },
 									beforeSend: function (xhr) {
-										xhr.setRequestHeader("Authorization", "Basic " + btoa("kimdr" + ":" + "zIMSNyE5iRDDsX00vDLCNFSHTAKr0odF"));
+										// xhr.setRequestHeader("Authorization", "Basic " + btoa("kimdr" + ":" + "zIMSNyE5iRDDsX00vDLCNFSHTAKr0odF"));
 									},
 									success: function (xml2) {
 										/**
